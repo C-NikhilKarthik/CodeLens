@@ -1,5 +1,5 @@
-import React from 'react';
-import { Button } from '@/components/ui/button';
+import React from "react";
+import { Button } from "@/components/ui/button";
 import { Nav, NavLink } from "@/components/Nav";
 import { Input } from "@/components/ui/input"
 import Image from 'next/image';
@@ -9,11 +9,21 @@ const Home: React.FC = () => {
   return (
     <div>
       <Nav>
-        <span className='text-1xl'>CodeLens</span>
-        <div className='flex-1'></div>
-        <NavLink href="/"><div className='py-1 text-sm font-light'>About</div></NavLink>
-        <NavLink href="/login"><Button className='bg-black h-8 hover:bg-black hover:outline hover:outline-1'><span className='text-sm font-light'>Sign in</span></Button></NavLink>
-        <NavLink href="/register"><Button className='bg-white text-black h-8 hover:bg-gray-200 text-sm'><span className='text-sm font-light'>Sign up</span></Button></NavLink>
+        <span className="text-xl font-semibold">CodeLens</span>
+        <div className="flex-1"></div>
+        <NavLink href="/">
+          <div className="py-1 text-sm font-light">About</div>
+        </NavLink>
+        <NavLink href="/login">
+          <Button className="h-8 hover:outline bg-transparent hover:bg-transparent hover:outline-1">
+            <span className="text-sm font-light">Sign in</span>
+          </Button>
+        </NavLink>
+        <NavLink href="/register">
+          <Button className="bg-color8 h-8 hover:bg-color7 hover:px-6 transition-all duration-300 text-sm">
+            <span className="text-sm font-light text-color1">Sign up</span>
+          </Button>
+        </NavLink>
       </Nav>
 
       <div className="flex items-center justify-center min-h-screen">
@@ -33,9 +43,19 @@ const Home: React.FC = () => {
         </div>
       </div>
 
+      <div className="flex justify-center relative -top-96 px-4">
+        <Image
+          src={"/Landing.png"}
+          className="rounded-lg w-full h-auto max-w-[1200px]"
+          width={0}
+          height={0}
+          sizes="100%"
+          alt="code"
+        />
+      </div>
+
       <Footer />
     </div>
-
   );
 };
 

@@ -1,10 +1,10 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Nav, NavLink } from "@/components/Nav";
-import { Input } from "@/components/ui/input"
-import Image from 'next/image';
-import vscodeImage from "../_images/vscode.jpg"
-import Footer from '@/components/Footer';
+import { Input } from "@/components/ui/input";
+import Image from "next/image";
+import Footer from "@/components/Footer";
+
 const Home: React.FC = () => {
   return (
     <div>
@@ -25,20 +25,28 @@ const Home: React.FC = () => {
           </Button>
         </NavLink>
       </Nav>
-
-      <div className="flex items-center justify-center min-h-screen">
-
-        <div className="text-center pt-20 pb-20">
-          <h1 className="text-1xl font-light mb-8 text-white">Analyse any code with ease</h1>
-          <h1 className="text-2xl font-bold mb-8 text-white">Unlock deeper insights into your code's functionality</h1>
-          <div className='flex justify-center'>
-            <div className="flex w-full max-w-sm items-center space-x-2 p-2">
-              <Input className="bg-gray-800 h-8 border-none text-white" type="url" placeholder="Enter GitHub Link" />
-              <Button className='bg-white text-black h-8  hover:bg-gray-200 text-sm' type="submit">Search</Button>
+      <div className="flex flex-col justify-center items-center h-screen p-3">
+        <div className="text-center flex flex-col items-center justify-center -top-16 relative">
+          <h1 className="text-[clamp(20px,4dvw,28px)] font-light text-white">
+            Analyse any code with ease
+          </h1>
+          <h1 className="text-[clamp(28px,4dvw,44px)] font-bold mb-8 text-white">
+            Unlock deeper insights into your code&apos;s functionality
+          </h1>
+          <div className="flex justify-center w-full">
+            <div className="flex flex-col md:flex-row gap-2 w-full max-w-md items-center space-x-2">
+              <Input
+                className="bg-[#e9ebed21] placeholder:text-[#7f7f7f] placeholder:text-[clamp(16px,3dwv,28px)] h-10 border-none "
+                type="link"
+                placeholder="Enter GitHub Link"
+              />
+              <Button
+                className="bg-color8 text-color1 h-10 hover:bg-color7 ml-[0_!important]"
+                type="submit"
+              >
+                Search
+              </Button>
             </div>
-          </div>
-          <div className="flex justify-center p-20">
-            <Image src={vscodeImage} className="rounded-xl" alt="code" />
           </div>
         </div>
       </div>

@@ -2,7 +2,6 @@
 
 import { cn } from "@/lib/utils"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
 import { ComponentProps, ReactNode } from "react"
 
 export function Nav({ children }: { children: ReactNode }) {

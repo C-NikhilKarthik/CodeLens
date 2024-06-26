@@ -1,8 +1,10 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Nav, NavLink } from "@/components/Nav";
+import { Input } from "@/components/ui/input"
 import Image from 'next/image';
 import vscodeImage from "../_images/vs_code.png";
+import Footer from '@/components/Footer';
 const Home: React.FC = () => {
   return (
     <div>
@@ -16,9 +18,16 @@ const Home: React.FC = () => {
 
       <div className="flex items-center justify-center min-h-screen">
 
-        <div className="text-center pt-20">
+        <div className="text-center pt-20 pb-20">
           <h1 className="text-1xl font-light mb-8 text-white">Analyse any code with ease</h1>
           <h1 className="text-2xl font-bold mb-8 text-white">Unlock deeper insights into your code's functionality</h1>
+          <div className='flex justify-center'>
+            <div className="flex w-full max-w-sm items-center space-x-2">
+              <Input className="bg-gray-800 h-8 border-none " type="link" placeholder="Enter GitHub Link" />
+              <Button className='bg-white text-black h-8 hover:bg-gray-200 text-sm' type="submit">Search</Button>
+            </div>
+          </div>
+
           <div className="flex justify-center pr-20 pl-20 pt-10 pb-10">
             <Image src={vscodeImage} alt="code" />
           </div>
@@ -31,6 +40,8 @@ const Home: React.FC = () => {
           </Button> */}
         </div>
       </div>
+
+      <Footer />
     </div>
 
   );

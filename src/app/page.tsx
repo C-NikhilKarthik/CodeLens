@@ -51,7 +51,7 @@ const Home: React.FC = () => {
         </div>
       </div>
 
-      <div className="flex justify-center relative -top-96 px-4">
+      <div className="flex justify-center relative -top-60 2xl:-top-96 px-4">
         <Image
           src={"/Landing.png"}
           className="rounded-lg w-full h-auto max-w-[1200px]"

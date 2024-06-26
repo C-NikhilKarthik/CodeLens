@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Lexend } from "next/font/google";
 import "./globals.css";
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 const inter = Lexend({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
@@ -16,10 +16,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(
-        "min-h-screen bg-black font-sans antialiased",
-        inter.variable
-      )}>{children}</body>
+      <body
+        className={cn(
+          "min-h-screen bg-color1 font-sans antialiased",
+          inter.variable
+        )}
+      >
+        {children}
+      </body>
     </html>
   );
 }

@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Metadata } from "next";
 import React from "react";
 
 export default function LoginPage() {
@@ -60,3 +61,7 @@ export default function LoginPage() {
     </div>
   );
 }
+
+export const metadata: Metadata = {
+  title: "Login",
+};

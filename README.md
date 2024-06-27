@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Code Analyser and Documentation Generator
 
-## Getting Started
+## Overview
 
-First, run the development server:
+This project aims to streamline the process of understanding, setting up, and maintaining code repositories. By analyzing the provided repository, our tool generates comprehensive README and setup files, ensuring that even the most neglected repositories are well-documented and easy to use.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Automated Documentation**: Automatically generate detailed README files, complete with installation instructions, usage guidelines, and contributor information.
+- **Setup Configuration**: Create setup files that outline the steps needed to get the project up and running, including dependencies and environment configurations.
+- **Code Analysis**: Gain insights into the structure and functionality of the codebase, highlighting key components and their interactions.
+- **User-Friendly Interface**: Easy-to-use interface that guides you through the process of analyzing your code and generating documentation.
+- **Customizable Outputs**: Tailor the generated documentation to meet your specific needs, with options for different formats and styles.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How It Works
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. **Upload Repository**: Provide a link to your GitHub repository or upload the code directly.
+2. **Analysis**: The tool scans the codebase to understand its structure, dependencies, and key functionalities.
+3. **Documentation Generation**: Based on the analysis, the tool generates a README file and setup instructions, ensuring that all necessary information is included.
+4. **Review and Edit**: Review the generated files and make any necessary edits before committing them to your repository.
 
-## Learn More
+## Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+- **Frontend**: Next.js, Tailwind CSS, Framer Motion
+- **Backend**: Node.js, Express, LLMs, Python
+- **Code Analysis**: Static analysis tools, custom parsing algorithms
+- **Documentation Generation**: Markdown, templating engines
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Usage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/C-NikhilKarthik/CodeLens.git
+    ```
+2. Install dependencies:
+    ```sh
+    cd CodeLens
+    npm install
+    ```
+3. Start the development server:
+    ```sh
+    npm run dev
+    ```
+4. Open your browser and navigate to `http://localhost:3000`.
 
-## Deploy on Vercel
+## Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+We welcome contributions from the community! If you’d like to contribute, please fork the repository and create a pull request with your changes. Make sure to follow our [contributing guidelines](CONTRIBUTING.md).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+If you have any questions or feedback, feel free to reach out to us at [email@example.com](mailto:nikhilkarthik241103@gmail.com).

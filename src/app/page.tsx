@@ -51,7 +51,7 @@ const Home: React.FC = () => {
             </div> */}
             <Link
               className="rounded bg-color8 text-color1 hover:bg-color7 transition-all hover:px-8 px-6 h-12 flex items-center"
-              href="/login"
+              href="/dashboard"
             >
               Get Started
             </Link>

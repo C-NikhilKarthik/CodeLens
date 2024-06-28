@@ -29,7 +29,7 @@ export default function Page() {
         <DashboardNav />
         <div className="flex flex-col mb-10 pt-36">
           <h1 className="text-5xl text-color8 font-bold">Hello, user</h1>
-          <h2 className="text-4xl text-color8 font-bold">
+          <h2 className="text-4xl text-color7 font-bold mt-1">
             How can I help you today?
           </h2>
         </div>

@@ -83,6 +83,16 @@ body,
   }
 }
 
+::selection {
+  background: #afbed348;
+  color: #bcd3eb;
+}
+
+::-moz-selection {
+  background: #afbed348;
+  color: #bcd3eb;
+}
+
 .infinite-scroll-wrapper {
   display: flex;
   overflow: hidden;

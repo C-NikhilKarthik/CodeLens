@@ -109,7 +109,7 @@ const Home: React.FC = () => {
               </kbd>
             </button>
             <Modal isOpen={isModalOpen} onClose={closeModal}>
-              <div className="flex flex-row space-x-2">
+              <div className="flex flex-row space-x-20">
                 <div className="flex flex-row space-x-2 ">
                   <div className="flex items-center">
                     <svg
@@ -127,7 +127,7 @@ const Home: React.FC = () => {
                       <circle cx="11" cy="11" r="6"></circle>
                     </svg></div>
 
-                  <Input autoFocus style={{ minWidth: '390px' }} className="border-none h-8" placeholder="Search" />
+                  <Input autoFocus style={{ minWidth: '500px' }} className="border-none h-8" placeholder="Search" />
                 </div>
 
                 <div className="flex items-center">
@@ -136,7 +136,7 @@ const Home: React.FC = () => {
                     className="h-6 w-3"
                     onClick={closeModal}
                   >
-                    <span className="text-xs">   Esc</span>
+                    <span className="text-xs">Esc</span>
 
                   </Button>
                 </div>

@@ -25,17 +25,21 @@ const Modal = ({ isOpen, onClose, children }: ComponentProps<any>) => {
     }, [isOpen, onClose]);
 
     const handleBackgroundClick = (event: any) => {
+
         if (event.target === event.currentTarget) {
             onClose();
         }
     };
 
     return (
-        <div onClick={handleBackgroundClick} className={`fixed z-10 inset-0 bg-black bg-opacity-50 flex items-center justify-center transition-opacity ${isOpen ? 'opacity-100  ease-in-out duration-1000' : 'opacity-0 pointer-events-none  ease-in-out duration-1000'
-            }`}>
-            <div style={{ minWidth: '500px', minHeight: '200px' }}
-                className={`bg-white p-3 rounded-lg transform transition-transform ${isOpen ? 'scale-100  ease-in-out duration-1000' : 'scale-90  ease-in-out duration-1000'
-                    }`}
+        <div onClick={handleBackgroundClick} className="fixed z-10 inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+            <div style={{
+                minWidth: '650px',
+                minHeight: '300px',
+                animation: 'fadeInTranslate 0.2s cubic-bezier(.4, 0, .2, 1)',
+
+            }}
+                className="bg-white p-3 relative rounded-lg bottom-1/5"
             >
                 {children}
             </div>

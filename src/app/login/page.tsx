@@ -5,7 +5,17 @@ import { Metadata } from "next";
 import React from "react";
 
 export default function LoginPage() {
-  return (
+  // const { user, githubSignIn, logout } = useAuth();
+
+  // const handleGitHubLogin = async () => {
+  //   try {
+  //     await githubSignIn();
+  //   } catch (error) {
+  //     console.error("GitHub login failed", error);
+  //   }
+  // };
+
+  return (  
     <div className="flex flex-col justify-center items-center text-color8 min-h-screen space-y-3">
       <span className="text-xl font-semibold">Sign in to CodeLens</span>
 

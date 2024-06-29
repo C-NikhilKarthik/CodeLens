@@ -1,17 +1,7 @@
-import React, {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-  ReactNode,
-} from "react";
-import { auth } from "@/firebase";
-import {
-  GithubAuthProvider,
-  signInWithPopup,
-  signOut,
-  User,
-} from "firebase/auth";
+"use client";
+import React, { createContext, useContext, useEffect, useState, ReactNode } from "react";
+import { auth } from "@/firebase"; 
+import { GithubAuthProvider, signInWithPopup, signOut, User } from "firebase/auth";
 
 interface AuthContextType {
   user: User | null;
@@ -21,19 +11,11 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
-export const useAuth = () => {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error("useAuth must be used within an AuthContextProvider");
-  }
-  return context;
-};
-
 interface AuthContextProviderProps {
   children: ReactNode;
 }
 
-export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
+export const AuthContextProvider: React.FC<AuthContextProviderProps> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
@@ -68,4 +50,12 @@ export const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
       {children}
     </AuthContext.Provider>
   );
+};
+
+export const useAuth = (): AuthContextType => {
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error("useAuth must be used within an AuthContextProvider");
+  }
+  return context;
 };

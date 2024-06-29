@@ -1,12 +1,35 @@
-import React from "react";
+"use client"
+import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Nav, NavLink } from "@/components/Nav";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { Content, Working } from "@/data/Home";
+import Modal from "@/components/SearchPopUp";
+import { Input } from "@/components/ui/input";
 
 const Home: React.FC = () => {
+
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
+
+  const handleKeyDown = (event: any) => {
+    if (event.ctrlKey && event.key === 'k') {
+      event.preventDefault();
+      setModalOpen(true);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
   return (
     <div>
       <Nav>
@@ -56,6 +79,7 @@ const Home: React.FC = () => {
               Get Started
             </Link>
             <button
+              onClick={openModal}
               type="button"
               className="hidden sm:flex items-center w-72 text-left space-x-3 px-4 h-12 rounded bg-color3 ring-0 text-slate-300 shadow-[inset_1px_1px_0_0_#ffffff0d] hover:bg-color4"
             >
@@ -79,11 +103,51 @@ const Home: React.FC = () => {
                   title="Control"
                   className="no-underline text-slate-300 dark:text-slate-500"
                 >
-                  Ctrl
+                  Ctrl+
                 </abbr>
                 K
               </kbd>
             </button>
+            <Modal isOpen={isModalOpen} onClose={closeModal}>
+              <div className="flex flex-row space-x-2">
+                <div className="flex flex-row space-x-2 ">
+                  <div className="flex items-center">
+                    <svg
+                      width="24"
+                      height="24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      className="flex-none text-slate-300 dark:text-slate-400"
+                      aria-hidden="true"
+                    >
+                      <path d="m19 19-3.5-3.5"></path>
+                      <circle cx="11" cy="11" r="6"></circle>
+                    </svg></div>
+
+                  <Input autoFocus style={{ minWidth: '390px' }} className="border-none h-8" placeholder="Search" />
+                </div>
+
+                <div className="flex items-center">
+
+                  <Button
+                    className="h-6 w-3"
+                    onClick={closeModal}
+                  >
+                    <span className="text-xs">   Esc</span>
+
+                  </Button>
+                </div>
+              </div>
+              <hr className="border-t border-gray-300 my-2" />
+
+              <div className="flex justify-center">
+                <p className="text-center">No recent searches</p>
+              </div>
+
+            </Modal>
           </div>
         </div>
       </div>

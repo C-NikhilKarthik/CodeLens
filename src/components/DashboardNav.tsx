@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useAnimate, stagger, motion } from "framer-motion";
+import { User } from "firebase/auth";
 
 const staggerMenuItems = stagger(0.1, { startDelay: 0.15 });
 
@@ -39,7 +40,11 @@ function useMenuAnimation(isOpen: boolean) {
   return scope;
 }
 
-export default function DashboardNav() {
+interface DashboardNavProps {
+  user: User | null;
+}
+
+const DashboardNav: React.FC<DashboardNavProps> = ({ user }) => {
   const [model, setModel] = useState<{ title: string; type: string }>({
     title: "Chat-GPT",
     type: "GPT-3.5",
@@ -228,9 +233,9 @@ export default function DashboardNav() {
                         gradientUnits="userSpaceOnUse"
                         gradientTransform="translate(2.77876 11.3795) rotate(18.6832) scale(29.8025 238.737)"
                       >
-                        <stop offset="0.0671246" stop-color="#9168C0" />
-                        <stop offset="0.342551" stop-color="#5684D1" />
-                        <stop offset="0.672076" stop-color="#1BA1E3" />
+                        <stop offset="0.0671246" stopColor="#9168C0" />
+                        <stop offset="0.342551" stopColor="#5684D1" />
+                        <stop offset="0.672076" stopColor="#1BA1E3" />
                       </radialGradient>
                     </defs>
                   </svg>
@@ -275,9 +280,9 @@ export default function DashboardNav() {
             height="24"
             fill="none"
             stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             className="flex-none text-slate-300 dark:text-slate-400"
             aria-hidden="true"
           >
@@ -296,7 +301,12 @@ export default function DashboardNav() {
           </kbd>
         </button>
         <div className="h-10 w-[1px] bg-color4" />
-        <button className="h-10 aspect-square rounded-full bg-color5"></button>
+        <button
+          style={{
+            backgroundImage: user ? `url(${user?.photoURL})` : "#E9EBED",
+          }}
+          className="h-10 aspect-square rounded-full bg-cover overflow-clip"
+        ></button>
       </div>
       <button className="h-10 flex md:hidden rounded-lg px-2 text-color8">
         <svg
@@ -312,4 +322,6 @@ export default function DashboardNav() {
       </button>
     </nav>
   );
-}
+};
+
+export default DashboardNav;

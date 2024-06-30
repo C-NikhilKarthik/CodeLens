@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Nav, NavLink } from "@/components/Nav";
@@ -8,25 +8,26 @@ import Link from "next/link";
 import { Content, Working } from "@/data/Home";
 import Modal from "@/components/SearchPopUp";
 import { Input } from "@/components/ui/input";
+import { useAuth } from "@/context/AuthContext";
 
 const Home: React.FC = () => {
-
   const [isModalOpen, setModalOpen] = useState(false);
+  const { user } = useAuth();
 
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
 
   const handleKeyDown = (event: any) => {
-    if (event.ctrlKey && event.key === 'k') {
+    if (event.ctrlKey && event.key === "k") {
       event.preventDefault();
       setModalOpen(true);
     }
   };
 
   useEffect(() => {
-    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener("keydown", handleKeyDown);
     return () => {
-      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
 
@@ -74,7 +75,7 @@ const Home: React.FC = () => {
             </div> */}
             <Link
               className="rounded bg-color8 text-color1 hover:bg-color7 transition-all hover:px-8 px-6 h-12 flex items-center"
-              href="/dashboard"
+              href={user ? "/dashboard" : "/login"}
             >
               Get Started
             </Link>
@@ -88,9 +89,9 @@ const Home: React.FC = () => {
                 height="24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 className="flex-none text-slate-300 dark:text-slate-400"
                 aria-hidden="true"
               >
@@ -117,27 +118,28 @@ const Home: React.FC = () => {
                       height="24"
                       fill="none"
                       stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       className="flex-none text-slate-300 dark:text-slate-400"
                       aria-hidden="true"
                     >
                       <path d="m19 19-3.5-3.5"></path>
                       <circle cx="11" cy="11" r="6"></circle>
-                    </svg></div>
+                    </svg>
+                  </div>
 
-                  <Input autoFocus style={{ minWidth: '500px' }} className="border-none h-8" placeholder="Search" />
+                  <Input
+                    autoFocus
+                    style={{ minWidth: "500px" }}
+                    className="border-none h-8"
+                    placeholder="Search"
+                  />
                 </div>
 
                 <div className="flex items-center">
-
-                  <Button
-                    className="h-6 w-3"
-                    onClick={closeModal}
-                  >
+                  <Button className="h-6 w-3" onClick={closeModal}>
                     <span className="text-xs">Esc</span>
-
                   </Button>
                 </div>
               </div>
@@ -146,7 +148,6 @@ const Home: React.FC = () => {
               <div className="flex justify-center">
                 <p className="text-center">No recent searches</p>
               </div>
-
             </Modal>
           </div>
         </div>

@@ -35,7 +35,7 @@ function useMenuAnimation(isOpen: boolean) {
         delay: isOpen ? staggerMenuItems : 0,
       }
     );
-  }, [isOpen]);
+  }, [animate, isOpen]);
 
   return scope;
 }

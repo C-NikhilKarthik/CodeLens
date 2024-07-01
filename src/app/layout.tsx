@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
-import { AuthContextProvider } from "@/context/AuthContext";
+import SessionWrapper from "@/components/SessionWrapper";
 
 export const metadata: Metadata = {
   title: {
@@ -19,15 +19,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={cn(
-          "min-h-screen bg-color1 font-sans antialiased",
-          inter.variable
-        )}
-      >
-        <AuthContextProvider>{children}</AuthContextProvider>
-      </body>
-    </html>
+    <SessionWrapper>
+      <html lang="en">
+        <body
+          className={cn(
+            "min-h-screen bg-color1 font-sans antialiased",
+            inter.variable
+          )}
+        >
+          {children}
+          {/* <AuthContextProvider>{children}</AuthContextProvider> */}
+        </body>
+      </html>
+    </SessionWrapper>
   );
 }

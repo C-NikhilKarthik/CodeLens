@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useAnimate, stagger, motion } from "framer-motion";
 import { User } from "firebase/auth";
+import { Session } from "next-auth";
 
 const staggerMenuItems = stagger(0.1, { startDelay: 0.15 });
 
@@ -41,10 +42,10 @@ function useMenuAnimation(isOpen: boolean) {
 }
 
 interface DashboardNavProps {
-  user: User | null;
+  session: Session | null;
 }
 
-const DashboardNav: React.FC<DashboardNavProps> = ({ user }) => {
+const DashboardNav: React.FC<DashboardNavProps> = ({ session }) => {
   const [model, setModel] = useState<{ title: string; type: string }>({
     title: "Chat-GPT",
     type: "GPT-3.5",
@@ -303,7 +304,9 @@ const DashboardNav: React.FC<DashboardNavProps> = ({ user }) => {
         <div className="h-10 w-[1px] bg-color4" />
         <button
           style={{
-            backgroundImage: user ? `url(${user?.photoURL})` : "#E9EBED",
+            backgroundImage: session
+              ? `url(${session?.user?.image})`
+              : "#E9EBED",
           }}
           className="h-10 aspect-square rounded-full bg-cover overflow-clip"
         ></button>

@@ -3,16 +3,17 @@ import React from "react";
 import DashboardNav from "./DashboardNav";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
-import { useAuth } from "@/context/AuthContext";
+import { useSession } from "next-auth/react";
 
 export default function DashboardMain() {
-  const { user } = useAuth();
+  const { data: session } = useSession();
+
   return (
     <div className="flex items-center flex-col flex-1 px-4">
-      <DashboardNav user={user} />
+      <DashboardNav session={session} />
       <div className="flex flex-col mb-10 pt-36">
         <h1 className="text-5xl text-color8 font-bold">
-          Hello, {user?.displayName}
+          Hello, {session?.user?.name}
         </h1>
         <h2 className="text-4xl text-color7 font-bold mt-1">
           How can I help you today?

@@ -8,11 +8,11 @@ import Link from "next/link";
 import { Content, Working } from "@/data/Home";
 import Modal from "@/components/SearchPopUp";
 import { Input } from "@/components/ui/input";
-import { useAuth } from "@/context/AuthContext";
+import { useSession } from "next-auth/react";
 
 const Home: React.FC = () => {
   const [isModalOpen, setModalOpen] = useState(false);
-  const { user } = useAuth();
+  const { data: session } = useSession();
 
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
@@ -75,7 +75,7 @@ const Home: React.FC = () => {
             </div> */}
             <Link
               className="rounded bg-color8 text-color1 hover:bg-color7 transition-all hover:px-8 px-6 h-12 flex items-center"
-              href={user ? "/dashboard" : "/login"}
+              href={session?.user ? "/dashboard" : "/login"}
             >
               Get Started
             </Link>

@@ -3,12 +3,9 @@ import React from "react";
 import DashboardNav from "./DashboardNav";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
-import { useAuth } from "@/context/AuthContext";
 import { useSession } from "next-auth/react";
 
 export default function DashboardMain() {
-  const { user } = useAuth();
-
   const { data: session } = useSession();
 
   return (

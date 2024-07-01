@@ -1,22 +1,13 @@
 "use client";
 
-import { useAuth } from "@/context/AuthContext";
 import React from "react";
 import { Button } from "./ui/button";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 export default function GitHubSignIn() {
-  const { user, githubSignIn, logout } = useAuth();
-
-  const handleGitHubLogin = async () => {
-    try {
-      await githubSignIn();
-    } catch (error) {
-      console.error("GitHub login failed", error);
-    }
-  };
   return (
     <Button
-      onClick={handleGitHubLogin}
+      onClick={() => signIn("github", { callbackUrl: "/dashboard" })}
       className="bg-color1 border border-color3 hover:bg-color1 h-8 rounded-md"
     >
       <div className="flex flex-row items-center space-x-2">
